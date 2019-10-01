@@ -1,16 +1,9 @@
 <!-- templates/home.html -->
-{% extends 'base.html' %}
-
-{% block title %}Home{% endblock %}
-
-{% block content %}
 {% if user.is_authenticated %}
-  
-<h1>Whaps up !  {{ user.username }}!</h1> 
-  <p><a href="{% url 'logout' %}">logout</a></p>
+  <h1>Hi {{ user.email }}!</h1>
+  <p><a href="{% url 'account_logout' %}">Log Out</a></p>
 {% else %}
   <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a> |
-  <a href="{% url 'signup' %}">signup</a>
+  <a href="{% url 'account_login' %}">Log In</a> |
+  <a href="{% url 'account_signup' %}">Sign Up</a>
 {% endif %}
-{% endblock %}
